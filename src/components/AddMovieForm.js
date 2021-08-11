@@ -12,7 +12,8 @@ const AddMovieForm = (props) => {
         director: "",
         genre: "",
         metascore: 0,
-        description:""
+        description:"",
+        id:props.id.length
     });
 
     const handleChange = (e) => {
@@ -69,13 +70,10 @@ const AddMovieForm = (props) => {
         </div>
     </div>);
 }
-// const mapStateToProps = (state)=>{
-//     return({
-//         title: "",
-//         director: "",
-//         genre: "",
-//         metascore: 0,
-//         description:""
-//     })
-// }
-export default connect(null, {addMovie}) (AddMovieForm);
+const mapStateToProps = (state)=>{
+    return({
+        ...state,
+        id: state.movieReducer.movies
+    })
+}
+export default connect(mapStateToProps, {addMovie}) (AddMovieForm);
