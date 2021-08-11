@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import {toggleFavorites} from '../actions/movieActions'
 import {removeFavorites} from '../actions/movieActions'
@@ -14,9 +14,9 @@ const FavoriteMovieList = (props) =>{
     const handleRemove=(id)=>{
         props.removeFavorites(id)
     }
-
+   
     
-    return (<div className="col-xs savedContainer" > 
+    return (<div className="col-xs savedContainer " > 
         <h5>Favorite Movies</h5>
         {
             props.favorites.map(movie=>{
